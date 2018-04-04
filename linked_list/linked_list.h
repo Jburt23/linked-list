@@ -16,8 +16,8 @@ public:
 	void add(double number);
 	//void remove(double number);
 	void displayList() const;
-private:
-	struct ListNode
+protected:                              // must be protected so a derivation of this class can use it
+	struct ListNode                     // namely SortedNumberList class
 	{
 		double value;
 		ListNode *next;
