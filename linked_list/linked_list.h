@@ -14,7 +14,7 @@ public:
 	NumberList() { head = nullptr; }
 	//~NumberList();
 	void add(double number);
-	//void remove(double number);
+	void remove(double number);
 	void displayList() const;
 protected:                              // must be protected so a derivation of this class can use it
 	struct ListNode                     // namely SortedNumberList class

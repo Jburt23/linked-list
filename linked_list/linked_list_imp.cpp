@@ -30,6 +30,36 @@ void NumberList::displayList() const
 	}
 }
 
+void NumberList::remove(double number)
+{
+	ListNode *nodePtr, *previousNodePtr;
+
+	if (!head) return; // if list is empty do nothing
+
+	if (head->value == number) // check to see if the first node is the one to delete
+	{
+		nodePtr = head;
+		head = head->next;
+		delete nodePtr;
+	}
+	else
+	{
+		nodePtr = head;    // initialize nodePtr to the head of the list
+
+		while (nodePtr != nullptr && nodePtr->value != number)
+		{
+			previousNodePtr = nodePtr;
+			nodePtr = nodePtr->next;
+		}
+		// link the previous node to the node after nodePtr, then delete nodePtr
+		if (nodePtr)
+		{
+			previousNodePtr->next = nodePtr->next;
+			delete nodePtr;
+		}
+	}
+}
+
 void SortedNumberList::add(double number)
 {
 	ListNode *nodePtr, *previousNodePtr;
